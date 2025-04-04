@@ -10,12 +10,12 @@ import (
 )
 
 func outputArgoApplication(kptFile *fn.KubeObject, path string) error {
-	destinationName := kptFile.GetAnnotation("kpt-repo.argocd.kpt.dev/destination-name")
-	projectName := kptFile.GetAnnotation("kpt-repo.argocd.kpt.dev/project-name")
+	destinationName "in-cluster" //:= kptFile.GetAnnotation("kpt-repo.argocd.kpt.dev/destination-name") // Can be default
+	projectName := "default" //kptFile.GetAnnotation("kpt-repo.argocd.kpt.dev/project-name") // Can be default
 	if destinationName == "" || projectName == "" {
 		return nil
 	}
-	kptFile.GetAnnotation("kpt-repo.argocd.kpt.dev/sync-policy")
+	// kptFile.GetAnnotation("kpt-repo.argocd.kpt.dev/sync-policy") // Can be default, but seemingly unused?
 	dirPath := filepath.Dir(path)
 
 	name := kptFile.GetName()
