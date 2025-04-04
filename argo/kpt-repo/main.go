@@ -60,7 +60,8 @@ var deploymentRepo string
 var namePrefix string
 
 func loadConfig() error {
-	file, err := os.ReadFile("KptArgoRepo")
+	/*
+	file, err := os.ReadFile("KptArgoRepo") // This is not necessary any longer, just look for kptfiles in the repo
 	if err != nil {
 		return err
 	}
@@ -68,8 +69,9 @@ func loadConfig() error {
 	if err != nil {
 		return err
 	}
-	deploymentRepo = ko.GetString("repoUrl")
-	namePrefix = ko.GetString("namePrefix")
+	*/
+	deploymentRepo = "https://github.com/alexvanboxel/deployments.git" //ko.GetString("repoUrl") // this can be a default
+	namePrefix = "deployments-" //ko.GetString("namePrefix") // this can be a deafult
 	return nil
 }
 
