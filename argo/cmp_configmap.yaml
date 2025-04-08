@@ -1,0 +1,9 @@
+configManagementPlugins: |
+  - name: kpt-repo
+    generate:
+      command: [\"/usr/local/bin/kpt-repo\"]
+    lockRepo: true
+  - name: kpt-render
+    generate:
+      command: [\"/usr/local/bin/kpt-render\"]
+    lockRepo: true
