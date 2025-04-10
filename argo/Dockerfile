@@ -1,5 +1,5 @@
-ARG BUILDER_IMAGE=golang:1.19.1
-ARG BASE_IMAGE=quay.io/argoproj/argocd:v2.4.12
+ARG BUILDER_IMAGE=golang:1.24.2
+ARG BASE_IMAGE=quay.io/argoproj/argocd:v2.14.6
 
 FROM --platform=$BUILDPLATFORM $BUILDER_IMAGE AS build
 ENV CGO_ENABLED=0
